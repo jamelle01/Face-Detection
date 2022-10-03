@@ -28,13 +28,14 @@ video.addEventListener('play',async () => {
 
   
 
-  // setInterval(async () => {
-    const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions()
+  setInterval(async () => {
+    const detections = await faceapi.detectAllFaces(video).withFaceLandmarks().withFaceDescriptors()
     const resizedDetections = faceapi.resizeResults(detections, displaySize)
 
-    const results = resizedDetections.map(d => faceMatcher)
-    canvas.getContext('2d').clearRect(0, 0, canvas.width,canvas.height)
     
+    canvas.getContext('2d').clearRect(0, 0, canvas.width,canvas.height)
+    const results = resizedDetections.map(d => faceMatcher.findBestMatch(d.descriptor))
+
     results.forEach((result, i) => {
       console.log("hello")
       const box = resizedDetections[i].detection.box
@@ -45,7 +46,7 @@ video.addEventListener('play',async () => {
     // faceapi.draw.drawDetections(canvas, resizedDetections)
     // faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
     // faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-  // })
+  }, 100)
 })
 
 function loadLabeledImages() {
