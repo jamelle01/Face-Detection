@@ -28,7 +28,7 @@ video.addEventListener('play',async () => {
 
   
 
-  // setInterval(async () => {
+  setInterval(async () => {
     const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions()
     const resizedDetections = faceapi.resizeResults(detections, displaySize)
 
@@ -45,7 +45,7 @@ video.addEventListener('play',async () => {
     // faceapi.draw.drawDetections(canvas, resizedDetections)
     // faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
     // faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-  // })
+  })
 })
 
 function loadLabeledImages() {
