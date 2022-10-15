@@ -4,7 +4,6 @@ Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
   faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
   faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
-  faceapi.nets.faceExpressionNet.loadFromUri('/models'),
   faceapi.nets.ssdMobilenetv1.loadFromUri('/models')
 ]).then(startVideo)
 
@@ -20,7 +19,7 @@ video.addEventListener('play',async () => {
   const canvas = faceapi.createCanvasFromMedia(video)
   document.body.append(canvas)
 
-  const displaySize = { width: video.width, height: video.height }
+  const displaySize = { width: video.width, height: video.height-100 }
   faceapi.matchDimensions(canvas, displaySize)
   
   const labeledFaceDescriptors = await loadLabeledImages()

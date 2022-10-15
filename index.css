@@ -60,8 +60,12 @@ body{
 
 }
 
-canvas, video {
+canvas,video{
     padding-top: 1vh;
     position: absolute;
-    border: 2px solid black;
   }
+
+canvas{
+    
+    border: -5px solid orange;
+}
