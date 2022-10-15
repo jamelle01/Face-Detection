@@ -46,18 +46,22 @@ body{
     right: 0;
 }
 .logo{
-    width: 10vw;
+    width: 5vw;
     height: auto;
     z-index: 10;
     
 }
 .instruction{
+    display: grid;
     margin-top: -80vh;
     position: relative;
+    justify-items: center;
+    color: white;
+
 }
 
 canvas, video {
-    padding-top: 10vh;
+    padding-top: 1vh;
     position: absolute;
     border: 2px solid black;
   }
