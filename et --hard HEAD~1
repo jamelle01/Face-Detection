@@ -1,0 +1,54 @@
+[33mcommit dc2dff5953f4be4a862ae694f13fa9a4406b3500[m[33m ([m[1;36mHEAD -> [m[1;32mhighbrid[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Ell do <91648854+jamelle01@users.noreply.github.com>
+Date:   Sat Oct 15 15:36:05 2022 +0800
+
+    finish_css
+
+[33mcommit 3ee5b23b819a09db1a43329b8cc9fefd5c95b38a[m
+Author: Ell do <91648854+jamelle01@users.noreply.github.com>
+Date:   Sat Oct 15 14:29:28 2022 +0800
+
+    not_done
+
+[33mcommit 902ac29994b4222e90df623e61df4f1088cbb470[m
+Author: Ell do <91648854+jamelle01@users.noreply.github.com>
+Date:   Sat Oct 15 13:38:24 2022 +0800
+
+    add_border
+
+[33mcommit 2cd7a3935d5a6cd5f64374ba249ffea393e461c3[m[33m ([m[1;32msimple[m[33m)[m
+Merge: a949ada 421bdc1
+Author: Ell do <91648854+jamelle01@users.noreply.github.com>
+Date:   Fri Oct 14 00:33:29 2022 +0800
+
+    Merge branch 'master' into branch1
+
+[33mcommit 421bdc16b5f1cd1e159e7301df2c6c95fb417221[m
+Author: Ell do <91648854+jamelle01@users.noreply.github.com>
+Date:   Fri Oct 14 00:24:06 2022 +0800
+
+    fix some error
+
+[33mcommit 612ffa8b8b3a8ef07753938d93c605e2fc8468c0[m
+Author: Ell do <91648854+jamelle01@users.noreply.github.com>
+Date:   Mon Oct 3 18:05:54 2022 +0800
+
+    copy from branch1 to master
+
+[33mcommit a949ada0bfcfda493117ba58433ae1bd4f41cbd4[m
+Author: Ell do <91648854+jamelle01@users.noreply.github.com>
+Date:   Mon Oct 3 17:56:25 2022 +0800
+
+    face identified
+
+[33mcommit f0d56f8e2f118a3057d7db2ff6c07822e6146201[m
+Author: Ell do <91648854+jamelle01@users.noreply.github.com>
+Date:   Mon Oct 3 17:31:08 2022 +0800
+
+    fine commint
+
+[33mcommit ca1c7fec30b878877e9105f5ebad1e9c0dc4aff6[m
+Author: Ell do <91648854+jamelle01@users.noreply.github.com>
+Date:   Mon Oct 3 17:28:43 2022 +0800
+
+    first
