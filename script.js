@@ -4,7 +4,7 @@ Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
   faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
   faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
-  faceapi.nets.faceExpressionNet.loadFromUri('/models'),
+  // faceapi.nets.faceExpressionNet.loadFromUri('/models'),
   faceapi.nets.ssdMobilenetv1.loadFromUri('/models')
 ]).then(startVideo)
 
@@ -16,6 +16,7 @@ function startVideo() {
   )
 }
 
+
 video.addEventListener('play',async () => {
   const canvas = faceapi.createCanvasFromMedia(video)
   document.body.append(canvas)
@@ -26,19 +27,20 @@ video.addEventListener('play',async () => {
   const labeledFaceDescriptors = await loadLabeledImages()
   const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.6)
 
-  
-
-  setInterval(async () => {
+  setTimeout(async () => {
     const detections = await faceapi.detectAllFaces(video).withFaceLandmarks().withFaceDescriptors()
     const resizedDetections = faceapi.resizeResults(detections, displaySize)
-
     
     canvas.getContext('2d').clearRect(0, 0, canvas.width,canvas.height)
     const results = resizedDetections.map(d => faceMatcher.findBestMatch(d.descriptor))
 
-    results.forEach((result, i) => {
+    results.forEach(async (result, i) => {
       console.log("hello")
       const box = resizedDetections[i].detection.box
+      let string = result.toString()
+      let no = await string.length;
+      no = no-3
+      console.log(string.substring(1, no))
       const drawBox = new faceapi.draw.DrawBox(box, { label: result.toString() })
       drawBox.draw(canvas)
     })
