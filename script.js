@@ -26,38 +26,42 @@ video.addEventListener('play',async () => {
   
   const displaySize = { width: video.width, height: video.height }
   faceapi.matchDimensions(canvas, displaySize)
-  c('canvas ready')
-  
-  
-  setTimeout(async () => {
+  c('canvas ready')  
+  const labeledFaceDescriptors = await loadLabeledImages()
+  c('image loaded')
+  const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.60)
+
+  const myInterval = setInterval(async () => {
     c('detecting face')
     const detections = await faceapi.detectAllFaces(video).withFaceLandmarks().withFaceDescriptors()
     c('preparing the box')
     const resizedDetections = faceapi.resizeResults(detections, displaySize)
-    c('face detected')
-    const labeledFaceDescriptors = await loadLabeledImages()
-    const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.60)
+    
     canvas.getContext('2d').clearRect(0, 0, canvas.width,canvas.height)
     const results = resizedDetections.map(d => faceMatcher.findBestMatch(d.descriptor))
-
     
-    results.forEach((result, i) => {
+    let str = results.toString()
+    
+    results.forEach(async (result, i) => {
       const box = resizedDetections[i].detection.box
 
-      let str = result.toString()
+      str = result.toString()
       var splitStr = str.split(" ");
-      // let no = await string.length;
-      // no = no-6
-      console.log(splitStr)
+      
+      
+      if (splitStr[0] !== "unknown"){
+        clearInterval(myInterval)
+        const username = splitStr[0];
+        console.log("interval clear")
+        console.log(username)
+      }
 
       const drawBox = new faceapi.draw.DrawBox(box, { label: splitStr[0] })
       drawBox.draw(canvas)
     })
 
-    // faceapi.draw.drawDetections(canvas, resizedDetections)
-    // faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
-    // faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
   }, 100)
+  return false;
 })
 
 function loadLabeledImages() {
