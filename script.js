@@ -4,10 +4,13 @@ Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
   faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
   faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
-  // faceapi.nets.faceExpressionNet.loadFromUri('/models'),
+  // faceapi.nets.faceExpressionNet.loadFromUri('/modeels'),
   faceapi.nets.ssdMobilenetv1.loadFromUri('/models')
-]).then(startVideo)
+]).then(c('video')).then(startVideo)
 
+function c(c){
+  console.log(c);
+}
 function startVideo() {
   navigator.getUserMedia(
     { video: {} },
@@ -20,22 +23,25 @@ function startVideo() {
 video.addEventListener('play',async () => {
   const canvas = faceapi.createCanvasFromMedia(video)
   document.body.append(canvas)
-
+  
   const displaySize = { width: video.width, height: video.height }
   faceapi.matchDimensions(canvas, displaySize)
+  c('canvas ready')
   
-  const labeledFaceDescriptors = await loadLabeledImages()
-  const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.60)
-
+  
   setTimeout(async () => {
+    c('detecting face')
     const detections = await faceapi.detectAllFaces(video).withFaceLandmarks().withFaceDescriptors()
+    c('preparing the box')
     const resizedDetections = faceapi.resizeResults(detections, displaySize)
-    
+    c('face detected')
+    const labeledFaceDescriptors = await loadLabeledImages()
+    const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.60)
     canvas.getContext('2d').clearRect(0, 0, canvas.width,canvas.height)
     const results = resizedDetections.map(d => faceMatcher.findBestMatch(d.descriptor))
 
-    results.forEach(async (result, i) => {
-      console.log("hello")
+    
+    results.forEach((result, i) => {
       const box = resizedDetections[i].detection.box
 
       let str = result.toString()
@@ -44,7 +50,7 @@ video.addEventListener('play',async () => {
       // no = no-6
       console.log(splitStr)
 
-      const drawBox = new faceapi.draw.DrawBox(box, { label: result.toString() })
+      const drawBox = new faceapi.draw.DrawBox(box, { label: splitStr[0] })
       drawBox.draw(canvas)
     })
 
@@ -55,7 +61,7 @@ video.addEventListener('play',async () => {
 })
 
 function loadLabeledImages() {
-  const labels = ['Jeramelle', 'Jerry', 'Sean', 'Paul', 'Justin']
+  const labels = ['Jeramelle', 'Maui', 'Paul', 'Justin']
   return Promise.all(
     labels.map(async label => {
       const descriptions = []
@@ -63,7 +69,7 @@ function loadLabeledImages() {
         const img = await faceapi.fetchImage(`./labeled_images/${label}/${i}.jpg`)
         const detections = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
         descriptions.push(detections.descriptor)
-        console.log("check")
+        c("check images")
       }
 
       return new faceapi.LabeledFaceDescriptors(label, descriptions)
