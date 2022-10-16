@@ -25,7 +25,7 @@ video.addEventListener('play',async () => {
   faceapi.matchDimensions(canvas, displaySize)
   
   const labeledFaceDescriptors = await loadLabeledImages()
-  const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.6)
+  const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.60)
 
   setTimeout(async () => {
     const detections = await faceapi.detectAllFaces(video).withFaceLandmarks().withFaceDescriptors()
@@ -37,10 +37,13 @@ video.addEventListener('play',async () => {
     results.forEach(async (result, i) => {
       console.log("hello")
       const box = resizedDetections[i].detection.box
-      let string = result.toString()
-      let no = await string.length;
-      no = no-3
-      console.log(string.substring(1, no))
+
+      let str = result.toString()
+      var splitStr = str.split(" ");
+      // let no = await string.length;
+      // no = no-6
+      console.log(splitStr)
+
       const drawBox = new faceapi.draw.DrawBox(box, { label: result.toString() })
       drawBox.draw(canvas)
     })
@@ -57,7 +60,6 @@ function loadLabeledImages() {
     labels.map(async label => {
       const descriptions = []
       for (let i = 1; i <= 2; i++) {
-        
         const img = await faceapi.fetchImage(`./labeled_images/${label}/${i}.jpg`)
         const detections = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
         descriptions.push(detections.descriptor)
