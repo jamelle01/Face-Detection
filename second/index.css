@@ -1,0 +1,71 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body{    
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: url("/background.jpg") 0% 0% / cover no-repeat;
+}
+#bluebg{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(38, 0, 255, 0.336);
+    position: absolute;
+    z-index: -1;
+}
+.triangle-left {
+	width: 0;
+	height: 0;
+    position: absolute;
+	border-top: 20em solid transparent;
+	border-left: 20em solid rgb(255, 94, 0);
+	border-bottom: 50% solid transparent;
+    bottom: 0;
+    left: 0;
+}
+.triangle-right {
+	width: 0;
+	height: 0;
+    position: absolute;
+	border-top: 20em solid transparent;
+	border-right: 20em solid rgb(255, 94, 0);
+	border-bottom: 50% solid transparent;
+    bottom: 0;
+    right: 0;
+}
+.logo{
+    width: 5vw;
+    height: auto;
+    z-index: 10;
+    
+}
+.instruction{
+    display: grid;
+    margin-top: -80vh;
+    position: relative;
+    justify-items: center;
+    color: white;
+
+}
+
+canvas,video{
+    padding-top: 1vh;
+    position: absolute;
+  }
+
+canvas{
+    
+    border: -5px solid orange;
+}
