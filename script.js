@@ -51,9 +51,9 @@ video.addEventListener('play',async () => {
       
       if (splitStr[0] !== "unknown"){
         clearInterval(myInterval)
+        console.log("interval clear") // clear the time in interval resulting to stop scanning
         const username = splitStr[0];
-        console.log("interval clear")
-        console.log(username)
+        document.location.href = `https://www.google.com/${username}`;
       }
 
       const drawBox = new faceapi.draw.DrawBox(box, { label: splitStr[0] })
