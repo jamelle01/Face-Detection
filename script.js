@@ -31,7 +31,7 @@ function startVideo(){
   });
 }
 
-video.addEventListener('play',async () => {
+video.addEventListener('playing',async () => {
   const canvas = faceapi.createCanvasFromMedia(video);
   document.body.append(canvas);
   
