@@ -12,3 +12,4 @@ The video eventListener for `play` fires up too early on low-end machines, befor
 ### adding feature face recognition
 
 after face detection, facial recognition follow using it as username authentication then proceed to password
+rename face fetection
