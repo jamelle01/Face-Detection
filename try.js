@@ -55,17 +55,18 @@ function doFunction(){
                 window.location.href = "http://127.0.0.1:5500/index.html"; //redirect to login page
                 break;
             }
-            
         }else{
             t = false;
         }
     }
     console.log(t)
-    {!t && console.log("password not match")}
+    {!t && console.log("password not match")
+    document.getElementById("pass").style.border = "thick solid  #ff0000";
+    document.getElementById("notif").innerText = "password not match";
+    }
     setTimeout(() => {
         
     }, 5000);
-    // 
 }
 
 const fdfd = ()=> {

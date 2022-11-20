@@ -66,7 +66,8 @@ video.addEventListener('playing',async () => {
         video.style.display = "none"; //hid the video  
         vid.style.display = "none"; //hid the video  
         localStream.getVideoTracks()[0].stop(); //
-        document.getElementById("username").innerText = (splitStr[0]);
+        const result = splitStr[0].toUpperCase();
+        document.getElementById("username").innerText = (result);
         password.style.display = "grid";
       }
     })
@@ -76,7 +77,7 @@ video.addEventListener('playing',async () => {
 })
 
 function loadLabeledImages() {
-  const labels = ['jeramelle', 'justin'] // NEED TO BE SOMEWHERE AND FETCH
+  const labels = ['jeramelle', 'jerico', 'eric'] // NEED TO BE SOMEWHERE AND FETCH
   return Promise.all(
     labels.map(async label => {
       const descriptions = []

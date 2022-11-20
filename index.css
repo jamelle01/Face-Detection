@@ -97,3 +97,13 @@ h1, label,#username{
 h1{
     color:rgb(255, 124, 49);
 }
+#notif{
+    color: #ff0000;
+  }
+/* :root {
+    --primary: #1aac83;
+    --error: #e7195a;
+}
+.error {
+    border: 1px solid var(--error);
+} */
