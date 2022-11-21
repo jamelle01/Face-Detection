@@ -47,7 +47,7 @@ function doFunction(){
     console.log(user)
     console.log(pass)
     for(let i=0; i<data.users.length; i++){
-        if(data.users[i].username == user){
+        if(data.users[i].username.toLowerCase() == user.toLowerCase()){
             console.log("forloop")
             if(data.users[i].password == pass){
                 console.log("ok")

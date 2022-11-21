@@ -9,6 +9,16 @@
   <script defer src="face-api.min.js"></script>
   <script defer src="script.js"></script>
   <script defer src="try.js"></script>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("pass");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+  </script>
 </head>
 <body>
   <div id="bluebg"></div>
@@ -25,6 +35,7 @@
     <div class="form">
       <label for="pass">Please enter your password</label><br>
       <input id="pass" type="password" placeholder="password" />
+      <input type="checkbox" onclick="myFunction()">Show Password </input>
       <p id="notif"></p>
     </div>
     <button id="clickme">LOGIN</button>
