@@ -1,7 +1,7 @@
 let data = null;
 const error = null;
 
-fetch('./sampledata.json')
+fetch('./sampledata.json') // fetch the fake data naa sa sample
     .then(res => {
         if (!res.ok) { // error coming back from server
             throw Error('could not fetch the data for that resource');

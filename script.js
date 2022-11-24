@@ -13,12 +13,7 @@ Promise.all([ // load all the models first before anything
 function c(c){ 
   console.log(c);
 }
-function startVideo(){
-  // navigator.getUserMedia(
-  //   { video: {} },
-  //   stream => video.srcObject = stream,
-  //   err => console.error(err)
-  // )
+function startVideo(){ // start video cam for scanning
   navigator.mediaDevices.getUserMedia({
     video: true
   })
@@ -31,7 +26,7 @@ function startVideo(){
   });
 }
 
-video.addEventListener('playing',async () => {
+video.addEventListener('playing',async () => { // inig start sa video cam
   const canvas = faceapi.createCanvasFromMedia(video);
   document.body.append(canvas);
   
