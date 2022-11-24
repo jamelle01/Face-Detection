@@ -9,7 +9,10 @@
 The video eventListener for `play` fires up too early on low-end machines, before the video is fully loaded, which causes errors to pop up from the Face API and terminates the script (tested on Debian [Firefox] and Windows [Chrome, Firefox]). Replaced by `playing` event, which fires up when the media has enough data to start playing.
 
 ---
+
 ### adding feature face recognition
 
 after face detection, facial recognition follow using it as username authentication then proceed to password
 rename face fetection try 1
+
+- push 11/24/2022 3:34pm by jeramelle
