@@ -99,7 +99,13 @@ h1{
 }
 #notif{
     color: #ff0000;
-  }
+}
+.check{
+    color: white;
+}
+input{
+    margin: 3px;
+}
 /* :root {
     --primary: #1aac83;
     --error: #e7195a;
