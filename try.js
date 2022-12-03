@@ -55,6 +55,8 @@ function doFunction() {
     } else {
       t = false;
     }
+    document.getElementById("pass").style.border = "none";
+    document.getElementById("notif").innerText = "";
   }
   console.log(t);
   {

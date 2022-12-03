@@ -58,8 +58,8 @@ video.addEventListener('playing',async () => { // inig start sa video cam
         clearInterval(myInterval);
         console.log("interval clear"); // clear the time in interval resulting to stop scanning
         console.log(splitStr[0]); // check
-        video.style.display = "none"; //hid the video  
-        vid.style.display = "none"; //hid the video  
+        video.style.display = "none"; //close the video  
+        vid.style.display = "none"; //close the video  
         localStream.getVideoTracks()[0].stop(); //
         const result = splitStr[0].toUpperCase();
         document.getElementById("username").innerText = (result);
@@ -72,16 +72,16 @@ video.addEventListener('playing',async () => { // inig start sa video cam
 })
 
 function loadLabeledImages() {
-  const labels = ['jeramelle', 'jerico', 'eric'] // NEED TO BE SOMEWHERE AND FETCH
+  const labels = ['Jeramelle Tatad'] // NEED TO BE SOMEWHERE AND FETCH
   return Promise.all(
     labels.map(async label => {
       const descriptions = []
-      for (let i = 1; i <= 1; i++) {
-        const img = await faceapi.fetchImage(`./labeled_images/${label}/${i}.jpg`)
+      // for (let i = 1; i <= 1; i++) {
+        const img = await faceapi.fetchImage(`https://res.cloudinary.com/durortebu/image/upload/w_200,h_200,c_thumb,g_face/photos/${labels}/1.jpg`)
         const detections = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
         descriptions.push(detections.descriptor)
         c("check images")
-      }
+      // }
       return new faceapi.LabeledFaceDescriptors(label, descriptions)
     })
   )

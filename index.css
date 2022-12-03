@@ -29,8 +29,8 @@ body{
 	width: 0;
 	height: 0;
     position: absolute;
-	border-top: 20em solid transparent;
-	border-left: 20em solid rgba(255, 94, 0, 0.907);
+	border-top: 30vw solid transparent;
+	border-left: 30vw solid rgba(255, 94, 0, 0.907);
 	border-bottom: 50% solid transparent;
     bottom: 0;
     left: 0;
@@ -39,15 +39,16 @@ body{
 	width: 0;
 	height: 0;
     position: absolute;
-	border-top: 20em solid transparent;
-	border-right: 20em solid rgb(255, 94, 0,.907);
+	border-top: 30vw solid transparent;
+	border-right: 30vw solid rgb(255, 94, 0,.907);
 	border-bottom: 50% solid transparent;
     bottom: 0;
     right: 0;
 }
 .logo{
-    width: 5vw;
+    width: 100px;
     height: auto;
+
     z-index: 10;
     
 }
@@ -70,17 +71,17 @@ canvas,video{
     position: absolute;
     text-align: center;
 }
-.orm{
+.form{
     margin-top: 2vw;
     justify-content: center;
     align-items: center;
 }
 #pass{
     font-size: 18px;
-    padding: 1vw 1vw;
-    width: 30vw;
+    padding: 5px;
+    width: 300px;
     border-radius: 10px;
-    border: 2px solid rgba(128, 128, 128, 0);
+    border: 2px solid rgba(46, 46, 46, 0);
     margin-top: 5px;
 }
 button{
@@ -103,9 +104,9 @@ h1{
 .check{
     color: white;
 }
-input{
+/* input{
     margin: 3px;
-}
+} */
 /* :root {
     --primary: #1aac83;
     --error: #e7195a;
