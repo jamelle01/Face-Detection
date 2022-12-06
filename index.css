@@ -92,6 +92,10 @@ button{
     border: 2px solid rgba(128, 128, 128, 0);
     background-color:rgb(255, 94, 0);
 }
+button:active{
+    transform: scale(1.1);
+    color: blue;
+} 
 h1, label,#username{
     color: white;
 }
