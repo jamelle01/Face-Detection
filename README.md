@@ -16,3 +16,6 @@ after face detection, facial recognition follow using it as username authenticat
 rename face fetection try 1
 
 - push 11/24/2022 3:34pm by jeramelle
+- push 12/12/22 done fetching with database
+
+## to 
