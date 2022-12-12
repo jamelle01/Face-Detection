@@ -26,3 +26,5 @@ rename face fetection try 1
 ---
 
 > code is still in the production. still not deployed
+> this is the deployed version.
+
