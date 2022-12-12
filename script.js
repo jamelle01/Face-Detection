@@ -100,6 +100,7 @@ video.addEventListener("playing", async () => {
   return false;
 });
 
+// load images from db
 async function loadLabeledImages() {
   const labels = await users.map((user) => {
     return user.username;
