@@ -15,13 +15,14 @@ The video eventListener for `play` fires up too early on low-end machines, befor
 after face detection, facial recognition follow using it as username authentication then proceed to password
 rename face fetection try 1
 
-- push 11/24/2022 3:34pm by jeramelle
-- push 12/12/22 done fetching with database
 ---
-## To run code 
-* first type ***npm install*** this install all dependencies
-* second type ***node server.js*** this run the server
-* use the *go live server* to run the program
+
+## To run code
+
+- first type **_npm install_** this install all dependencies
+- second type **_node server.js_** this run the server
+- use the _go live server_ to run the program
 
 ---
+
 > code is still in the production. still not deployed
