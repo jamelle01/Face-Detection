@@ -15,7 +15,7 @@ body.portal {
     font-weight: 400;
     color: #fff;
     
-    background: url("background.jpg") 0% 0% / cover no-repeat;
+    background: url("../background.jpg") 0% 0% / cover no-repeat;
 }
 
 .oper-section-outer {
