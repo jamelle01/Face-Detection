@@ -66,7 +66,7 @@ function doFunction() {
       if (users[i].password == pass) {
         console.log("ok");
         t = true;
-        window.location.href = "http://127.0.0.1:5500/index.html"; //redirect to login page
+        window.location.href = "./second/index.html"; //redirect to login page
         break;
       }
     } else {

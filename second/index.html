@@ -1,23 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <link rel="stylesheet" href="index.css" type="text/css" />
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <script defer src="face-api.min.js"></script>
-  <script defer src="script.js"></script>
-</head>
-<body>
-  <div id="bluebg"></div>
-  <div class="instruction">
-    <img class="logo" src="logo.png">
-    <p>Scan face to connect WiFi</p>
-  </div>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="index.css" type="text/css" />
+<body class="portal">
+    <div id="bluebg"></div>
+    <div class="triangle-left"></div>
+    <div class="triangle-right"></div>
+    <div class="logo-img">
+        <img class="logo" src="logo.png">
+    </div>
 
-  <div class="triangle-left"></div>
-  <div class="triangle-right"></div>
-  <video id="video" width="400" height="400" autoplay muted></video>
+    
+    <div class="oper-section-outer">
+        <div class="oper-section-inner">
+            <span id="oper-hint" style="color: red"></span>
+            <div id="hotspot-section">
+                <select id="hotspot-selector" class="oper-section-item"></select>
+            </div>
+            <form id="login-form">
+                <div id="input-voucher">
+                    <input id="voucherCode" class="oper-section-item input" name="voucherCode" type="text" placeholder="Voucher Code"/>
+                </div>
+                <div id="input-user">
+                    <input id="username" class="oper-section-item input" name="username" type="text" placeholder="Username"/>
+                </div>
+                <div id="input-password" class="user-input">
+                    <input id="password" class="oper-section-item input" name="password" type="password"  placeholder="Password"/>
+                </div>
+                <div id="input-simple">
+                    <input id="simplePassword" class="password oper-section-item" name="simplePassword" type="password" placeholder="Password"/>
+                </div>
+                <div id="input-phone-num">
+                    <span class="add">+</span><input id="country-code" class="input"><input id="phone-number" class="input" name="phone-number" type="text" placeholder="Phone Number"/>
+                </div>
+                <div id="input-verify-code">
+                    <input id="verify-code" class="input" name="verify-code" type="text" placeholder="Verification Code"/><button id="get-code" class="button">Get Code</button>
+                </div>
+                <input name="clientMac" id="cMac" style="display:none"/>
+                <input name="radiusSvrIp" id="radiusServerIp" style="display:none"/>
+            </form>
+            <div id="button-area">
+                <button id="button-facebook" class="button oper-section-item">Facebook</button>
+                <button id="button-login" class="button oper-section-item">Log In</button>
+            </div>
+        </div>
+    </div>
 </body>
-</html>
+<script src="index.js"></script>
+
+
