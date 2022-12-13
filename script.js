@@ -5,7 +5,7 @@ password.style.display = "none"; // so that it won't show at first
 let users;
 
 async function fetchWorkouts() {
-  const response = await fetch("http://localhost:4001");
+  const response = await fetch("https://face-recognition-backend.adaptable.app/");
   const json = await response.json();
   if (response.ok) {
     users = await json.map((user) => {
