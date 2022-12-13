@@ -20,7 +20,7 @@
 //   });
 let user;
 async function fetchWorkouts() {
-  const response = await fetch("http://localhost:4001");
+  const response = await fetch("https://face-recognition-backend.adaptable.app/");
   const json = await response.json();
   if (response.ok) {
     user = await json.map((user) => {
