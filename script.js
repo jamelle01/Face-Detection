@@ -55,6 +55,7 @@ video.addEventListener("playing", async () => {
   document.body.append(canvas);
 
   const displaySize = { width: video.width, height: video.height };
+  console.log(displaySize)
   faceapi.matchDimensions(canvas, displaySize);
   c("canvas ready");
   const labeledFaceDescriptors = await loadLabeledImages();
