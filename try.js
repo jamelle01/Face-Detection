@@ -20,7 +20,9 @@
 //   });
 let user;
 async function fetchWorkouts() {
-  const response = await fetch("https://face-recognition-backend.adaptable.app/");
+  const response = await fetch(
+    "https://face-recognition-backend.adaptable.app/"
+  );
   const json = await response.json();
   if (response.ok) {
     user = await json.map((user) => {
@@ -36,7 +38,7 @@ async function fetchWorkouts() {
 
 Promise.all([fetchWorkouts()]).then(() => {
   for (let i = 0; i < users.length; i++) {
-    console.log(user[i].username)
+    console.log(user[i].username);
   }
 });
 
@@ -52,7 +54,6 @@ document.getElementById("pass").addEventListener("keypress", function (event) {
 
 // function setData(d) {
 
-
 function doFunction() {
   console.log("function");
   var t = false;
@@ -61,7 +62,7 @@ function doFunction() {
   console.log(user);
   console.log(pass);
   for (let i = 0; i < user.length; i++) {
-    if ((user[i].username).toLowerCase() == userd.toLowerCase()) {
+    if (user[i].username.toLowerCase() == userd.toLowerCase()) {
       console.log("forloop");
       if (users[i].password == pass) {
         console.log("ok");
@@ -78,8 +79,10 @@ function doFunction() {
   console.log(t);
   {
     !t && console.log("password not match");
-    document.getElementById("pass").style.border = "thick solid  #ff0000";
-    document.getElementById("notif").innerText = "password not match";
+    if (!t) {
+      document.getElementById("pass").style.border = "thick solid  #ff0000";
+      document.getElementById("notif").innerText = "password not match";
+    }
   }
   setTimeout(() => {}, 5000);
 }
