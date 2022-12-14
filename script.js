@@ -3,6 +3,7 @@ const vid = document.getElementsByClassName("vid")[0];
 const password = document.getElementById("password");
 password.style.display = "none"; // so that it won't show at first
 let users;
+let text = document.getElementById('text');
 
 async function fetchWorkouts() {
   const response = await fetch("https://face-recognition-backend.adaptable.app/");
@@ -120,6 +121,8 @@ async function loadLabeledImages() {
         console.log(
           `https://res.cloudinary.com/durortebu/image/upload/v1/photos/${label}/1.jpg`
         );
+        text += label+"\n";
+        document.getElementById('text').innerHTML= text;
         const detections = await faceapi
           .detectSingleFace(img)
           .withFaceLandmarks()
