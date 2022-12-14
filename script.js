@@ -121,8 +121,8 @@ async function loadLabeledImages() {
         console.log(
           `https://res.cloudinary.com/durortebu/image/upload/v1/photos/${label}/1.jpg`
         );
-        text += label+"\n";
-        document.getElementById('text').innerHTML= text;
+        // text += label+"\n";
+        // document.getElementById('text').innerHTML= text;
         const detections = await faceapi
           .detectSingleFace(img)
           .withFaceLandmarks()
