@@ -128,7 +128,7 @@ async function loadLabeledImages() {
           .detectSingleFace(img)
           .withFaceLandmarks()
           .withFaceDescriptor();
-        await descriptions.push(detections.descriptor);
+        descriptions.push(detections.descriptor);
 
         c("check images");
         // }
