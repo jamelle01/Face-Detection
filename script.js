@@ -60,6 +60,7 @@ video.addEventListener("playing", async () => {
   faceapi.matchDimensions(canvas, displaySize);
   c("canvas ready");
   const labeledFaceDescriptors = await loadLabeledImages();
+  c(labeledFaceDescriptors);
   c("image loaded");
   const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.5);
 
