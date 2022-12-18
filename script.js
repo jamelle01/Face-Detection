@@ -52,6 +52,7 @@ function startVideo() {
 
 video.addEventListener("playing", async () => {
   // inig start sa video cam
+  // Display the image in a canvas element
   const canvas = faceapi.createCanvasFromMedia(video);
   document.body.append(canvas);
 
@@ -66,6 +67,7 @@ video.addEventListener("playing", async () => {
 
   const myInterval = setInterval(async () => {
     c("detecting face");
+    // Detect the face in the image
     const detections = await faceapi
       .detectAllFaces(video)
       .withFaceLandmarks()
@@ -74,6 +76,7 @@ video.addEventListener("playing", async () => {
     const resizedDetections = faceapi.resizeResults(detections, displaySize);
 
     // canvas.getContext('2d').clearRect(0, 0, canvas.width,canvas.height)
+    // Compute the distances between the detected face descriptors and the labeled face descriptors
     const results = resizedDetections.map((d) =>
       faceMatcher.findBestMatch(d.descriptor)
     ); // collect the result
