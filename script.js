@@ -120,7 +120,7 @@ async function loadLabeledImages() {
         const descriptions = [];
         // for (let i = 1; i <= 1; i++) {
         const img = await faceapi.fetchImage(
-          `https://res.cloudinary.com/durortebu/image/upload/v1/photos/jeramelle}/1.jpg`
+          `https://res.cloudinary.com/durortebu/image/upload/v1/photos/jeramelle/1.jpg`
         );
         console.log(
           `https://res.cloudinary.com/durortebu/image/upload/v1/photos/${label}/1.jpg`
