@@ -86,7 +86,3 @@ function doFunction() {
   }
   setTimeout(() => {}, 5000);
 }
-
-const fdfd = () => {
-  console.log("wait");
-};
