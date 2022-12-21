@@ -3,10 +3,12 @@ const vid = document.getElementsByClassName("vid")[0];
 const password = document.getElementById("password");
 password.style.display = "none"; // so that it won't show at first
 let users;
-let text = document.getElementById('text');
+let text = document.getElementById("text");
 
 async function fetchWorkouts() {
-  const response = await fetch("https://face-recognition-backend.adaptable.app/");
+  const response = await fetch(
+    "https://face-recognition-backend.adaptable.app/"
+  );
   const json = await response.json();
   if (response.ok) {
     users = await json.map((user) => {
@@ -28,8 +30,17 @@ Promise.all([
   faceapi.nets.ssdMobilenetv1.loadFromUri("/models"),
   fetchWorkouts(),
 ])
-  .then(c("video"))
-  .then(startVideo);
+  .then(() => {
+    c("video");
+    startVideo();
+  })
+  .then(() => {
+    setTimeout(() => {
+      document
+        .getElementsByClassName("spinner")[0]
+        .style.setProperty("display", "inline-block");
+    }, 1000);
+  });
 
 function c(c) {
   // const s = users.name;
@@ -57,7 +68,7 @@ video.addEventListener("playing", async () => {
   document.body.append(canvas);
 
   const displaySize = { width: video.width, height: video.height };
-  console.log(displaySize)
+  console.log(displaySize);
   faceapi.matchDimensions(canvas, displaySize);
   c("canvas ready");
   const labeledFaceDescriptors = await loadLabeledImages();
@@ -67,6 +78,7 @@ video.addEventListener("playing", async () => {
 
   const myInterval = setInterval(async () => {
     c("detecting face");
+    // document.getElementsByTagName("canvas").style.border = "thick solid  #ff0000";
     // Detect the face in the image
     const detections = await faceapi
       .detectAllFaces(video)
@@ -94,6 +106,9 @@ video.addEventListener("playing", async () => {
         clearInterval(myInterval);
         console.log("interval clear"); // clear the time in interval resulting to stop scanning
         console.log(splitStr[0]); // check
+        document
+          .getElementsByClassName("spinner")[0]
+          .style.setProperty("display", "none");
         video.style.display = "none"; //close the video
         vid.style.display = "none"; //close the video
         localStream.getVideoTracks()[0].stop(); //
@@ -110,7 +125,7 @@ video.addEventListener("playing", async () => {
 async function loadLabeledImages() {
   const labels = await users.map((user) => {
     return user.username;
-  }); 
+  });
 
   console.log(labels);
 
@@ -131,7 +146,7 @@ async function loadLabeledImages() {
           .detectSingleFace(img)
           .withFaceLandmarks()
           .withFaceDescriptor();
-        c('prob')
+        c("prob");
         descriptions.push(detections.descriptor);
 
         c("check images");

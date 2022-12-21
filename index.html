@@ -26,13 +26,13 @@
   <div class="instruction">
     <img class="logo" src="logo.png">
     <p class="vid">Scan face to connect WiFi</p>
-    <p id="text">f</p>
+    <p id="text"></p>
   </div>
   
   <div class="triangle-left"></div>
   <div class="triangle-right"></div>
 
-  <div id="password">
+  <div id="password" style="display: none;">
     <h1>WELCOME<br><span id="username"></span></h1>
     <div class="form">
       <label for="pass">Please enter your password</label><br>
@@ -43,7 +43,8 @@
     </div>
     <button id="clickme">LOGIN</button>
   </div>
-  <video id="video" class="vid" width="350" height="350" autoplay="" muted></video>
+  <div class="spinner" style="display: none;"></div>
+  <video id="video" class="vid" width="350" height="350" autoplay="" muted></div></video>
   
 </body>
 </html>

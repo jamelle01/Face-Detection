@@ -1,23 +1,3 @@
-// let data = null;
-// const error = null;
-
-// fetch("./sampledata.json") // fetch the fake data naa sa sample
-//   .then((res) => {
-//     if (!res.ok) {
-//       // error coming back from server
-//       throw Error("could not fetch the data for that resource");
-//     }
-//     return res.json();
-//   })
-//   .then((data) => {
-//     setData(data);
-//   })
-//   .then(() => {
-//     console.log(data);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
 let user;
 async function fetchWorkouts() {
   const response = await fetch(
