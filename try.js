@@ -73,6 +73,7 @@ async function doFunction() {
     console.log(ssidName);
     console.log(radioId);
     console.log(redirectUrl);
+    window.location.href = redirectUrl; //redirect to login page
   }
   {
     !t && console.log("password not match");
@@ -90,7 +91,6 @@ const fetchController = () => {
     apMac: apMac,
     ssidName: ssidName,
     radioId: radioId,
-    time: milliseconds,
     authType: 4,
   };
   console.log("f");
