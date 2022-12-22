@@ -3,6 +3,7 @@ var clientMac = getQueryStringKey("clientMac");
 var apMac = getQueryStringKey("apMac");
 // var gatewayMac = getQueryStringKey("gatewayMac") || undefined;
 var ssidName = getQueryStringKey("ssidName") || undefined;
+var redirectUrl = getQueryStringKey("redirectUrl") || undefined;
 var radioId = !!getQueryStringKey("radioId")
   ? Number(getQueryStringKey("radioId"))
   : undefined;
@@ -71,6 +72,7 @@ async function doFunction() {
     console.log(apMac);
     console.log(ssidName);
     console.log(radioId);
+    console.log(redirectUrl);
   }
   {
     !t && console.log("password not match");
