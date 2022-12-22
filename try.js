@@ -73,7 +73,7 @@ async function doFunction() {
     console.log(ssidName);
     console.log(radioId);
     console.log(redirectUrl);
-    window.location.href = redirectUrl; //redirect to login page
+    window.location.href = `${redirectUrl}`; //redirect to login page
   }
   {
     !t && console.log("password not match");
