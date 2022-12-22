@@ -175,7 +175,8 @@ Ajax.post(
 
         function handleSubmit(){
             var submitData = {};
-            submitData['authType'] = window.authType;
+            // submitData['authType'] = window.authType;
+            submitData['authType'] = 0;
             switch (window.authType){
                 case 3:
                     submitData['voucherCode'] = document.getElementById("voucherCode").value;
