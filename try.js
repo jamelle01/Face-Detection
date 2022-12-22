@@ -73,7 +73,8 @@ async function doFunction() {
     console.log(ssidName);
     console.log(radioId);
     console.log(redirectUrl);
-    // window.location.href = `${redirectUrl}`; //redirect to login page
+    // window.location.href = `${redirectUrl}`; //redirect to login page/
+    authorize();
   }
   {
     !t && console.log("password not match");
@@ -95,7 +96,7 @@ async function authorize() {
   };
 
   // get CSRF token
-  const csrfToken = getCSRFToken();
+  // const csrfToken = getCSRFToken();
 
   // define headers
   const headers = {
