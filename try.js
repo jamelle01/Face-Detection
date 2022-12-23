@@ -92,8 +92,8 @@ async function login() {
   console.log("logging in");
   // define login info
   const loginInfo = {
-    name: "tplink",
-    password: "tplink",
+    name: "ellemarej123@gmail.com",
+    password: "admin123!@#",
   };
 
   // define headers
