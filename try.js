@@ -107,7 +107,7 @@ async function login() {
     method: "POST",
     headers: headers,
     body: JSON.stringify(loginInfo),
-    credentials: "include",
+    // credentials: "include",
   };
 
   // make HTTP request using fetch function
