@@ -112,7 +112,7 @@ async function login() {
 
   // make HTTP request using fetch function
   const res = await fetch(
-    `https://${CONTROLLER}:${PORT}/${CONTROLLER_ID}/api/v2`,
+    `https://${CONTROLLER}:${PORT}/93575f5c1d2898597019560a983a0794/api/v2/hotspot/login`,
     options
   );
 }
