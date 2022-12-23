@@ -111,10 +111,26 @@ async function login() {
   };
 
   // make HTTP request using fetch function
-  const res = await fetch(
-    `https://192.168.100.80:8043/93575f5c1d2898597019560a983a0794/api/`,
-    options
-  );
+  // const res = await fetch(
+  //   `https://192.168.100.80:8043/93575f5c1d2898597019560a983a0794/api/`,
+  //   options
+  // );
+  
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://192.168.100.80:8043/93575f5c1d2898597019560a983a0794/api/', true);
+  
+  xhr.onload = function () {
+    if (xhr.status >= 200 && xhr.status < 300) {
+      // Success: the response was received and the header was set correctly
+    } else {
+      // Error: the header was not set correctly
+    }
+  };
+  
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://example.com');
+  xhr.send(JSON.stringify(loginInfo));
+
 }
 
 // async function authorize() {
