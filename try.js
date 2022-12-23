@@ -89,7 +89,7 @@ const CONTROLLER = "192.168.100.80";
 const PORT = "8043";
 const CONTROLLER_ID = "93575f5c1d2898597019560a983a0794";
 async function login() {
-  console.log('logging in')
+  console.log("logging in");
   // define login info
   const loginInfo = {
     name: "tplink",
@@ -112,7 +112,8 @@ async function login() {
 
   // make HTTP request using fetch function
   const res = await fetch(
-    `https://${CONTROLLER}:${PORT}/93575f5c1d2898597019560a983a0794/api/v2/hotspot/login`,
+    // `https://${CONTROLLER}:${PORT}/93575f5c1d2898597019560a983a0794/api/v2/hotspot/login`,
+    `https://omada.tplinkcloud.com/omada/5.7.4/index.html?token=964d114725b24bc2bebf22514ed08f4d&deviceId=7B0695175E87B1B626A4DA68330D1DECF7BF89&omadacId=93575f5c1d2898597019560a983a0794`,
     options
   );
 }
