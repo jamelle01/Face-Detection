@@ -89,7 +89,7 @@ const CONTROLLER = "192.168.100.80";
 const PORT = "8043";
 const CONTROLLER_ID = "93575f5c1d2898597019560a983a0794";
 async function login() {
-  console.log("logging in");
+  console.log('logging in')
   // define login info
   const loginInfo = {
     name: "tplink",
@@ -111,14 +111,10 @@ async function login() {
   };
 
   // make HTTP request using fetch function
-  try {
-    const res = await fetch(
-      `https://${CONTROLLER}:${PORT}/${CONTROLLER_ID}/api`,
-      options
-    );
-  } catch (error) {
-    console.log(error);
-  }
+  const res = await fetch(
+    `https://${CONTROLLER}:${PORT}/${CONTROLLER_ID}/api/v2/hotspot/login`,
+    options
+  );
 }
 
 // async function authorize() {
