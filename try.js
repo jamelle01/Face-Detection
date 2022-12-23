@@ -113,7 +113,7 @@ async function login() {
   // make HTTP request using fetch function
   try {
     const res = await fetch(
-      `https://${CONTROLLER}:${PORT}/${CONTROLLER_ID}`,
+      `https://${CONTROLLER}:${PORT}/${CONTROLLER_ID}/login`,
       options
     );
   } catch (error) {
