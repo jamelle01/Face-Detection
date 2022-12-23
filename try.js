@@ -107,13 +107,13 @@ async function login() {
     method: "POST",
     headers: headers,
     body: JSON.stringify(loginInfo),
-    // credentials: "include",
+    credentials: "include",
   };
 
   // make HTTP request using fetch function
   try {
     const res = await fetch(
-      `https://${CONTROLLER}:${PORT}/${CONTROLLER_ID}/login`,
+      `https://${CONTROLLER}:${PORT}/${CONTROLLER_ID}/api`,
       options
     );
   } catch (error) {
