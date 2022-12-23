@@ -89,6 +89,7 @@ const CONTROLLER = "192.168.100.80";
 const PORT = "8043";
 const CONTROLLER_ID = "93575f5c1d2898597019560a983a0794";
 async function login() {
+  console.log('logging in')
   // define login info
   const loginInfo = {
     name: "tplink",
