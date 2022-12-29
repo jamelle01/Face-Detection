@@ -117,20 +117,20 @@ async function login() {
     options
   );
   
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://192.168.0.115:8043/53477786b5ff63adf8978a17cb6d79c6/api/', true);
+  // var xhr = new XMLHttpRequest();
+  // xhr.open('GET', 'https://192.168.0.115:8043/53477786b5ff63adf8978a17cb6d79c6/api/', true);
   
-  xhr.onload = function () {
-    if (xhr.status >= 200 && xhr.status < 300) {
-      // Success: the response was received and the header was set correctly
-    } else {
-      // Error: the header was not set correctly
-    }
-  };
+  // xhr.onload = function () {
+  //   if (xhr.status >= 200 && xhr.status < 300) {
+  //     // Success: the response was received and the header was set correctly
+  //   } else {
+  //     // Error: the header was not set correctly
+  //   }
+  // };
   
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://example.com');
-  xhr.send(JSON.stringify(loginInfo));
+  // xhr.setRequestHeader('Content-Type', 'application/json');
+  // xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://example.com');
+  // xhr.send(JSON.stringify(loginInfo));
 
 }
 
