@@ -108,7 +108,7 @@ async function login() {
     method: "POST",
     headers: headers,
     body: JSON.stringify(loginInfo),
-    credentials: "include",
+    // credentials: "include",
   };
 
   // make HTTP request using fetch function
@@ -123,9 +123,10 @@ async function login() {
   // check if login was successful
   if (resObj.errorCode === 0) {
     // login successfully
-    setCSRFToken(resObj.result.token);
+    // setCSRFToken(resObj.result.token);
+    console.log('login suc')
   }
-  
+
   // var xhr = new XMLHttpRequest();
   // xhr.open('GET', 'https://192.168.0.115:8043/53477786b5ff63adf8978a17cb6d79c6/api/', true);
   
