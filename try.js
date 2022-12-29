@@ -112,10 +112,10 @@ async function login() {
   };
 
   // make HTTP request using fetch function
-  // const res = await fetch(
-  //   `https://192.168.100.80:8043/93575f5c1d2898597019560a983a0794/api/`,
-  //   options
-  // );
+  const res = await fetch(
+    `https://192.168.0.115:8043/53477786b5ff63adf8978a17cb6d79c6/api/`,
+    options
+  );
   
   var xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://192.168.0.115:8043/53477786b5ff63adf8978a17cb6d79c6/api/', true);
