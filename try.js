@@ -117,6 +117,15 @@ async function login() {
     options
   );
   
+  // parse response as JSON
+  const resObj = await res.json();
+
+  // check if login was successful
+  if (resObj.errorCode === 0) {
+    // login successfully
+    setCSRFToken(resObj.result.token);
+  }
+  
   // var xhr = new XMLHttpRequest();
   // xhr.open('GET', 'https://192.168.0.115:8043/53477786b5ff63adf8978a17cb6d79c6/api/', true);
   
