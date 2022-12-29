@@ -97,7 +97,7 @@ async function login() {
     password: "tplink",
   };
 
-  // define headers
+  // define headerss
   const headers = {
     "Content-Type": "application/json",
     Accept: "application/json",
