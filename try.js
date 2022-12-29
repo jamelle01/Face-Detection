@@ -88,6 +88,7 @@ async function doFunction() {
 const CONTROLLER = "192.168.100.80";
 const PORT = "8043";
 const CONTROLLER_ID = "93575f5c1d2898597019560a983a0794";
+
 async function login() {
   console.log("logging in");
   // define login info
@@ -117,7 +118,7 @@ async function login() {
   // );
   
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://192.168.100.80:8043/93575f5c1d2898597019560a983a0794/api/', true);
+  xhr.open('GET', 'https://192.168.0.117:8043/53477786b5ff63adf8978a17cb6d79c6/api/', true);
   
   xhr.onload = function () {
     if (xhr.status >= 200 && xhr.status < 300) {
