@@ -1,3 +1,5 @@
+const cors = require("cors");
+
 let user;
 var clientMac = getQueryStringKey("clientMac");
 var apMac = getQueryStringKey("apMac");
@@ -99,14 +101,15 @@ async function login() {
 
   // define headerss
   const headers = {
+    Origin: "https://face-detection-nine.vercel.app",
     "Content-Type": "application/json",
-    Accept: "application/json",
   };
 
   // define fetch options
   const options = {
     method: "POST",
     headers: headers,
+    mode: "cors",
     body: JSON.stringify(loginInfo),
     // credentials: "include",
   };
