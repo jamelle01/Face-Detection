@@ -106,6 +106,7 @@ async function login() {
   // define fetch options
   const options = {
     method: "POST",
+    mode: "cors",
     headers: headers,
     body: JSON.stringify(loginInfo),
     credentials: "include",
