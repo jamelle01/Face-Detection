@@ -7,7 +7,9 @@ var redirectUrl = getQueryStringKey("redirectUrl") || undefined;
 var radioId = !!getQueryStringKey("radioId")
   ? Number(getQueryStringKey("radioId"))
   : undefined;
+
 console.log("i tried");
+
 async function fetchWorkouts() {
   const response = await fetch(
     "https://face-recognition-backend.adaptable.app/"
@@ -66,10 +68,10 @@ async function doFunction() {
   console.log(t);
   if (t) {
     // await fetchController();
-    console.log(clientMac);
-    console.log(apMac);
-    console.log(ssidName);
-    console.log(radioId);
+    // console.log(clientMac);
+    // console.log(apMac);
+    // console.log(ssidName);
+    // console.log(radioId);
     // console.log(redirectUrl);
     // window.location.href = `${redirectUrl}`; //redirect to login page/
     // authorize();
