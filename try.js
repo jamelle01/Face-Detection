@@ -144,7 +144,7 @@ async function login() {
 
 }
 
-// async function authorize() {
+/// async function authorize() {
 //   const authInfo = {
 //     clientMac: clientMac,
 //     apMac: apMac,
