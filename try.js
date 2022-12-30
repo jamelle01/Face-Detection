@@ -104,12 +104,6 @@ async function login() {
     "Content-Type": "application/json",
     Accept: "application/json"
   };
-
-  // make HTTP request using fetch function
-  // const res = await fetch(
-  //   `https://192.168.0.115:8043/53477786b5ff63adf8978a17cb6d79c6/api/v2/hotspot/login`,
-  //   options
-  // );
   
   const xhr = new XMLHttpRequest();
   xhr.rejectUnauthorized = false;
