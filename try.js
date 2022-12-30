@@ -99,14 +99,13 @@ async function login() {
 
   // define headerss
   const headers = {
-    Origin: "https://face-detection-nine.vercel.app",
     "Content-Type": "application/json",
+    Accept: "application/json"
   };
 
   // define fetch options
   const options = {
     method: "POST",
-    mode: "cors",
     headers: headers,
     body: JSON.stringify(loginInfo),
     credentials: "include",
@@ -114,7 +113,7 @@ async function login() {
 
   // make HTTP request using fetch function
   const res = await fetch(
-    `https://192.168.0.115:8043/53477786b5ff63adf8978a17cb6d79c6/login#hotspot`,
+    `https://192.168.0.115:8043/53477786b5ff63adf8978a17cb6d79c6/api/v2/hotspot/login`,
     options
   );
   
