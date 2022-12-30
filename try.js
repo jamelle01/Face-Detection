@@ -1,12 +1,12 @@
 let user;
-var clientMac = getQueryStringKey("clientMac");
-var apMac = getQueryStringKey("apMac");
-// var gatewayMac = getQueryStringKey("gatewayMac") || undefined;
-var ssidName = getQueryStringKey("ssidName") || undefined;
-var redirectUrl = getQueryStringKey("redirectUrl") || undefined;
-var radioId = !!getQueryStringKey("radioId")
-  ? Number(getQueryStringKey("radioId"))
-  : undefined;
+// var clientMac = getQueryStringKey("clientMac");
+// var apMac = getQueryStringKey("apMac");
+// // var gatewayMac = getQueryStringKey("gatewayMac") || undefined;
+// var ssidName = getQueryStringKey("ssidName") || undefined;
+// var redirectUrl = getQueryStringKey("redirectUrl") || undefined;
+// var radioId = !!getQueryStringKey("radioId")
+//   ? Number(getQueryStringKey("radioId"))
+//   : undefined;
 
 console.log("i tried");
 
@@ -105,103 +105,47 @@ async function login() {
     Accept: "application/json"
   };
 
-  // define fetch options
-  const options = {
-    method: "POST",
-    mode: "cors",
-    headers: headers,
-    body: JSON.stringify(loginInfo),
-    credentials: "include",
-  };
-
   // make HTTP request using fetch function
-  const res = await fetch(
-    `https://192.168.0.115:8043/53477786b5ff63adf8978a17cb6d79c6/api/v2/hotspot/login`,
-    options
-  );
+  // const res = await fetch(
+  //   `https://192.168.0.115:8043/53477786b5ff63adf8978a17cb6d79c6/api/v2/hotspot/login`,
+  //   options
+  // );
   
-  // parse response as JSON
-  const resObj = await res.json();
+  const xhr = new XMLHttpRequest();
+  xhr.rejectUnauthorized = false;
 
-  // check if login was successful
-  if (resObj.errorCode === 0) {
-    // login successfully
-    // setCSRFToken(resObj.result.token);
-    console.log('login suc')
-  }
+  xhr.addEventListener("load", () => {
+    const resObj = JSON.parse(xhr.responseText);
 
-  // var xhr = new XMLHttpRequest();
-  // xhr.open('GET', 'https://192.168.0.115:8043/53477786b5ff63adf8978a17cb6d79c6/api/', true);
+    if (resObj.errorCode === 0) {
+        setCSRFToken(resObj.result.token);
+    }
   
-  // xhr.onload = function () {
-  //   if (xhr.status >= 200 && xhr.status < 300) {
-  //     // Success: the response was received and the header was set correctly
-  //   } else {
-  //     // Error: the header was not set correctly
-  //   }
-  // };
-  
-  // xhr.setRequestHeader('Content-Type', 'application/json');
-  // xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://example.com');
-  // xhr.send(JSON.stringify(loginInfo));
+  });
 
+  xhr.open("POST", `https://192.168.0.115:8043/53477786b5ff63adf8978a17cb6d79c6/api/v2/hotspot/login`);
+
+  Object.entries(headers).forEach(([key, value]) => xhr.setRequestHeader(key, value));
+
+  xhr.send(JSON.stringify(loginInfo));
+
+  function setCSRFToken(token) {
+    const fs = new FileSystem();
+
+    const file = fs.openFile(TOKEN_FILE_PATH, { create: true });
+    if (!file) {
+        console.error("Unable to open file!");
+        return;
+    }
+
+    file.write(token);
+
+    file.close();
+
+    return token;
+}
 }
 
-/// async function authorize() {
-//   const authInfo = {
-//     clientMac: clientMac,
-//     apMac: apMac,
-//     ssidName: ssidName,
-//     radioId: radioId,
-//     authType: 4,
-//   };
-
-//   // get CSRF token
-//   // const csrfToken = getCSRFToken();
-
-//   // define headers
-//   const headers = {
-//     "Content-Type": "application/json",
-//     Accept: "application/json",
-//     // "Csrf-Token": csrfToken
-//   };
-
-//   // define fetch options
-//   const options = {
-//     method: "POST",
-//     headers: headers,
-//     body: JSON.stringify(authInfo),
-//     // credentials: "include",
-//   };
-
-//   const CONTROLLER = "192.168.100.80";
-//   const PORT = "8043";
-//   const CONTROLLER_ID = "93575f5c1d2898597019560a983a0794";
-
-//   // make HTTP request using fetch function
-//   const res = await fetch(
-//     // `https://${CONTROLLER}:${PORT}/${CONTROLLER_ID}/api/v2/hotspot/login`,
-//     `https://${CONTROLLER}:${PORT}/${CONTROLLER_ID}/api/v2/hotspot/extPortal/auth`,
-//     options
-//   );
-
-//   // parse response as JSON
-//   const resObj = await res.json();
-
-//   // check if authorization was successful
-//   if (resObj.errorCode === 0) {
-//     // authorized successfully
-//     window.location.href = `${redirectUrl}`; //redirect to login page
-//   }
-
-//   // function to get CSRF token
-//   // function getCSRFToken() {
-//   //   // use filesystem module to read token from file
-//   //   const fs = require("fs");
-//   //   const token = fs.readFileSync(TOKEN_FILE_PATH, "utf8");
-//   //   return token;
-//   // }
-// }
 
 function getQueryStringKey(key) {
   return getQueryStringAsObject()[key];
