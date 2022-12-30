@@ -1,5 +1,3 @@
-const cors = require("cors");
-
 let user;
 var clientMac = getQueryStringKey("clientMac");
 var apMac = getQueryStringKey("apMac");
