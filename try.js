@@ -92,5 +92,105 @@ const PORT = "8043";
 const CONTROLLER_ID = "93575f5c1d2898597019560a983a0794";
 
 async function login() {
+  console.log("logging in");
+  // define login info
+  const loginInfo = {
+    name: "tplink",
+    password: "tplink",
+  };
+
+  // define headerss
+  const headers = {
+    "Content-Type": "application/json",
+    Accept: "application/json"
+  };
   
+  const xhr = new XMLHttpRequest();
+  xhr.rejectUnauthorized = false;
+
+  xhr.addEventListener("load", () => {
+    const resObj = JSON.parse(xhr.responseText);
+
+    if (resObj.errorCode === 0) {
+        setCSRFToken(resObj.result.token);
+    }
+  
+  });
+
+  xhr.open("POST", `https://192.168.0.115:8043/53477786b5ff63adf8978a17cb6d79c6/api/v2/hotspot/login`);
+
+  Object.entries(headers).forEach(([key, value]) => xhr.setRequestHeader(key, value));
+
+  xhr.send(JSON.stringify(loginInfo));
+
+  function setCSRFToken(token) {
+    const fs = new FileSystem();
+
+    const file = fs.openFile(TOKEN_FILE_PATH, { create: true });
+    if (!file) {
+        console.error("Unable to open file!");
+        return;
+    }
+
+    file.write(token);
+
+    file.close();
+
+    return token;
+  }
+}
+
+
+function getQueryStringKey(key) {
+  return getQueryStringAsObject()[key];
+}
+
+function getQueryStringAsObject() {
+  var b,
+    cv,
+    e,
+    k,
+    ma,
+    sk,
+    v,
+    r = {},
+    d = function (v) {
+      return decodeURIComponent(v);
+    }, //# d(ecode) the v(alue)
+    q = window.location.search.substring(1), //# suggested: q = decodeURIComponent(window.location.search.substring(1)),
+    s = /([^&;=]+)=?([^&;]*)/g; //# original regex that does not allow for ; as a delimiter:   /([^&=]+)=?([^&]*)/g
+  ma = function (v) {
+    if (typeof v != "object") {
+      cv = v;
+      v = {};
+      v.length = 0;
+      if (cv) {
+        Array.prototype.push.call(v, cv);
+      }
+    }
+    return v;
+  };
+  while ((e = s.exec(q))) {
+    b = e[1].indexOf("[");
+    v = d(e[2]);
+    if (b < 0) {
+      k = d(e[1]);
+      if (r[k]) {
+        r[k] = ma(r[k]);
+        Array.prototype.push.call(r[k], v);
+      } else {
+        r[k] = v;
+      }
+    } else {
+      k = d(e[1].slice(0, b));
+      sk = d(e[1].slice(b + 1, e[1].indexOf("]", b)));
+      r[k] = ma(r[k]);
+      if (sk) {
+        r[k][sk] = v;
+      } else {
+        Array.prototype.push.call(r[k], v);
+      }
+    }
+  }
+  return r;
 }
