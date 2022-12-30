@@ -70,7 +70,7 @@ async function doFunction() {
     console.log(apMac);
     console.log(ssidName);
     console.log(radioId);
-    console.log(redirectUrl);
+    // console.log(redirectUrl);
     // window.location.href = `${redirectUrl}`; //redirect to login page/
     // authorize();
     login();
