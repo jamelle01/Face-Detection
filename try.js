@@ -137,7 +137,7 @@ async function login() {
     file.close();
 
     return token;
-}
+  }
 }
 
 
