@@ -7,7 +7,7 @@ var redirectUrl = getQueryStringKey("redirectUrl") || undefined;
 var radioId = !!getQueryStringKey("radioId")
   ? Number(getQueryStringKey("radioId"))
   : undefined;
-
+console.log("i tried");
 async function fetchWorkouts() {
   const response = await fetch(
     "https://face-recognition-backend.adaptable.app/"
