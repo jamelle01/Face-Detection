@@ -75,7 +75,7 @@ async function doFunction() {
     // console.log(redirectUrl);
     // window.location.href = `${redirectUrl}`; //redirect to login page/
     // authorize();
-    login();
+    authorize();
   }
   {
     !t && console.log("password not match");
