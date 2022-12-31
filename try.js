@@ -102,12 +102,12 @@ function authorize(clientMac, apMac, ssidName, radioId, milliseconds) {
     authType: 4,
   };
 
-  const csrfToken = getCSRFToken();
+  // const csrfToken = getCSRFToken();
 
   const headers = {
     "Content-Type": "application/json",
     Accept: "application/json",
-    "Csrf-Token": csrfToken,
+    // "Csrf-Token": csrfToken,
   };
 
   const xhr = new XMLHttpRequest();
@@ -131,7 +131,7 @@ function authorize(clientMac, apMac, ssidName, radioId, milliseconds) {
   xhr.send(JSON.stringify(authInfo));
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.setRequestHeader("Accept", "application/json");
-  xhr.setRequestHeader("Csrf-Token", csrfToken);
+  // xhr.setRequestHeader("Csrf-Token", csrfToken);
 
   xhr.addEventListener("load", () => {
     const res = xhr.responseText;
@@ -144,17 +144,17 @@ function authorize(clientMac, apMac, ssidName, radioId, milliseconds) {
   });
 }
 
-function getCSRFToken() {
-  const fs = new FileSystem();
-  const file = fs.openFile(TOKEN_FILE_PATH, { create: true });
-  if (!file) {
-    console.error("Unable to open file!");
-    return;
-  }
-  const token = file.read();
-  file.close();
-  return token;
-}
+// function getCSRFToken() {
+//   const fs = new FileSystem();
+//   const file = fs.openFile(TOKEN_FILE_PATH, { create: true });
+//   if (!file) {
+//     console.error("Unable to open file!");
+//     return;
+//   }
+//   const token = file.read();
+//   file.close();
+//   return token;
+// }
 
 function getQueryStringKey(key) {
   return getQueryStringAsObject()[key];
