@@ -8,7 +8,7 @@ let user;
 //   ? Number(getQueryStringKey("radioId"))
 //   : undefined;
 
-console.log("i tried");
+console.log("I'm dead");
 
 async function fetchWorkouts() {
   const response = await fetch(
