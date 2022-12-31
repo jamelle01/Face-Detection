@@ -1,12 +1,12 @@
 let user;
-// var clientMac = getQueryStringKey("clientMac");
-// var apMac = getQueryStringKey("apMac");
-// // var gatewayMac = getQueryStringKey("gatewayMac") || undefined;
-// var ssidName = getQueryStringKey("ssidName") || undefined;
-// var redirectUrl = getQueryStringKey("redirectUrl") || undefined;
-// var radioId = !!getQueryStringKey("radioId")
-//   ? Number(getQueryStringKey("radioId"))
-//   : undefined;
+var clientMac = getQueryStringKey("clientMac");
+var apMac = getQueryStringKey("apMac");
+// var gatewayMac = getQueryStringKey("gatewayMac") || undefined;
+var ssidName = getQueryStringKey("ssidName") || undefined;
+var redirectUrl = getQueryStringKey("redirectUrl") || undefined;
+var radioId = !!getQueryStringKey("radioId")
+  ? Number(getQueryStringKey("radioId"))
+  : undefined;
 
 console.log("I'm dead");
 
@@ -75,7 +75,7 @@ async function doFunction() {
     // console.log(redirectUrl);
     // window.location.href = `${redirectUrl}`; //redirect to login page/
     // authorize();
-    authorize();
+    authorize(clientMac, apMac, ssidName, radioId);
   }
   {
     !t && console.log("password not match");
@@ -91,14 +91,14 @@ const CONTROLLER = "192.168.100.80";
 const PORT = "8043";
 const CONTROLLER_ID = "93575f5c1d2898597019560a983a0794";
 
-function authorize(clientMac, apMac, ssidName, radioId, milliseconds) {
+function authorize(clientMac, apMac, ssidName, radioId) {
   // Send user to authorize and the time allowed
   const authInfo = {
     clientMac: clientMac,
     apMac: apMac,
     ssidName: ssidName,
     radioId: radioId,
-    time: milliseconds,
+    // time: milliseconds,
     authType: 4,
   };
 
