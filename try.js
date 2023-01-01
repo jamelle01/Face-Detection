@@ -127,11 +127,12 @@ function authorize(clientMac, apMac, ssidName, radioId) {
   // Allow Self Signed Certs
   xhr.rejectUnauthorized = false;
 
-  // API Call
-  xhr.send(JSON.stringify(authInfo));
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.setRequestHeader("Accept", "application/json");
   xhr.setRequestHeader("Csrf-Token", csrfToken);
+
+  // API Call
+  xhr.send(JSON.stringify(authInfo));
 
   xhr.addEventListener("load", () => {
     const res = xhr.responseText;
