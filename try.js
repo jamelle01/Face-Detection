@@ -131,7 +131,7 @@ function authorize(clientMac, apMac, ssidName, radioId) {
   xhr.send(JSON.stringify(authInfo));
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.setRequestHeader("Accept", "application/json");
-  // xhr.setRequestHeader("Csrf-Token", csrfToken);
+  xhr.setRequestHeader("Csrf-Token", csrfToken);
 
   xhr.addEventListener("load", () => {
     const res = xhr.responseText;
