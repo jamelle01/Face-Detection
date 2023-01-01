@@ -129,7 +129,7 @@ function authorize(clientMac, apMac, ssidName, radioId) {
 
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.setRequestHeader("Accept", "application/json");
-  xhr.setRequestHeader("Csrf-Token", csrfToken);
+  // xhr.setRequestHeader("Csrf-Token", csrfToken);
 
   // API Call
   xhr.send(JSON.stringify(authInfo));
