@@ -92,7 +92,7 @@ const CONTROLLER_ID = "93575f5c1d2898597019560a983a0794";
 async function authorize(clientMac, apMac, ssidName, radioId) {
   const body = { clientMac, apMac, ssidName, radioId };
 
-  await fetch("https://face-recognition-backend.adaptable.app/post", {
+  await fetch("https://face-recognition-backend.adaptable.app/ff", {
     method: "POST",
     body: JSON.stringify(body),
     headers: { "Content-Type": "application/json" },
