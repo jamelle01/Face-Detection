@@ -92,15 +92,24 @@ const CONTROLLER_ID = "93575f5c1d2898597019560a983a0794";
 async function authorize(clientMac, apMac, ssidName, radioId) {
   const body = { clientMac, apMac, ssidName, radioId };
 
-  await fetch("https://face-recognition-backend.adaptable.app/post", {
-    method: "POST",
-    body: JSON.stringify(body),
-    headers: { "Content-Type": "application/json" },
-  })
-    .then((response) => response.json())
-    .then((result) => {
+  try {
+    const response = await fetch(
+      "https://face-recognition-backend.adaptable.app/post",
+      {
+        method: "POST",
+        body: JSON.stringify(body),
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    if (response.status === 200) {
+      const result = await response.json();
       console.log(result);
-    });
+    } else {
+      console.error("Request failed with status code", response.status);
+    }
+  } catch (error) {
+    console.error("Request failed with error", error);
+  }
 }
 
 function getQueryStringKey(key) {
