@@ -90,70 +90,18 @@ const PORT = "8043";
 const CONTROLLER_ID = "93575f5c1d2898597019560a983a0794";
 
 function authorize(clientMac, apMac, ssidName, radioId) {
-  // Send user to authorize and the time allowed
-  const authInfo = {
-    clientMac: clientMac,
-    apMac: apMac,
-    ssidName: ssidName,
-    radioId: radioId,
-    // time: milliseconds,
-    authType: 4,
-  };
+  const body = { clientMac, apMac, ssidName, radioId };
 
-  // const csrfToken = getCSRFToken();
-
-  const headers = {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-    // "Csrf-Token": csrfToken,
-  };
-
-  const xhr = new XMLHttpRequest();
-
-  // post
-  xhr.open(
-    "POST",
-    `https://192.168.0.115:8043/53477786b5ff63adf8978a17cb6d79c6/api/v2/hotspot/login`
-  );
-
-  // Set return to a value, not return to page
-  xhr.responseType = "text";
-
-  // Set up cookies.
-  xhr.withCredentials = true;
-
-  // Allow Self Signed Certs
-  xhr.rejectUnauthorized = false;
-
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.setRequestHeader("Accept", "application/json");
-  // xhr.setRequestHeader("Csrf-Token", csrfToken);
-
-  // API Call
-  xhr.send(JSON.stringify(authInfo));
-
-  xhr.addEventListener("load", () => {
-    const res = xhr.responseText;
-    console.log(res);
-    const resObj = JSON.parse(res);
-
-    if (resObj.errorCode === 0) {
-      // authorized successfully
-    }
-  });
+  fetch("https://face-recognition-backend.adaptable.app/post", {
+    method: "POST",
+    body: JSON.stringify(body),
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result);
+    });
 }
-
-// function getCSRFToken() {
-//   const fs = new FileSystem();
-//   const file = fs.openFile(TOKEN_FILE_PATH, { create: true });
-//   if (!file) {
-//     console.error("Unable to open file!");
-//     return;
-//   }
-//   const token = file.read();
-//   file.close();
-//   return token;
-// }
 
 function getQueryStringKey(key) {
   return getQueryStringAsObject()[key];
