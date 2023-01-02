@@ -89,10 +89,10 @@ const CONTROLLER = "192.168.100.80";
 const PORT = "8043";
 const CONTROLLER_ID = "93575f5c1d2898597019560a983a0794";
 
-function authorize(clientMac, apMac, ssidName, radioId) {
+async function authorize(clientMac, apMac, ssidName, radioId) {
   const body = { clientMac, apMac, ssidName, radioId };
 
-  fetch("https://face-recognition-backend.adaptable.app/post", {
+  await fetch("https://face-recognition-backend.adaptable.app/post", {
     method: "POST",
     body: JSON.stringify(body),
     headers: { "Content-Type": "application/json" },
