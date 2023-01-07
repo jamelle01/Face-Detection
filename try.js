@@ -65,14 +65,16 @@ async function doFunction() {
   }
   console.log(t);
   if (t) {
-    // await fetchController();
-    // console.log(clientMac);
-    // console.log(apMac);
-    // console.log(ssidName);
-    // console.log(radioId);
-    // console.log(redirectUrl);
-    // window.location.href = `${redirectUrl}`; //redirect to login page/
-    // authorize();
+    {
+      // await fetchController();
+      // console.log(clientMac);
+      // console.log(apMac);
+      // console.log(ssidName);
+      // console.log(radioId);
+      // console.log(redirectUrl);
+      // window.location.href = `${redirectUrl}`; //redirect to login page/
+      // authorize();
+    }
     await authorize(clientMac, apMac, ssidName, radioId);
   }
   {

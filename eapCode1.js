@@ -6,7 +6,7 @@ async function authorize(clientMac, apMac, ssidName, radioId, milliseconds) {
     ssidName: ssidName,
     radioId: radioId,
     time: milliseconds,
-    authType: 4
+    authType: 4,
   };
 
   // get CSRF token
@@ -16,7 +16,7 @@ async function authorize(clientMac, apMac, ssidName, radioId, milliseconds) {
   const headers = {
     "Content-Type": "application/json",
     Accept: "application/json",
-    "Csrf-Token": csrfToken
+    "Csrf-Token": csrfToken,
   };
 
   // define fetch options
@@ -24,7 +24,7 @@ async function authorize(clientMac, apMac, ssidName, radioId, milliseconds) {
     method: "POST",
     headers: headers,
     body: JSON.stringify(authInfo),
-    credentials: "include"
+    credentials: "include",
   };
 
   // make HTTP request using fetch function
