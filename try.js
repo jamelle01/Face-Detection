@@ -94,7 +94,7 @@ async function authorize(clientMac, apMac, ssidName, radioId) {
 
   try {
     const response = await fetch(
-      "https://face-recognition-backend.adaptable.app/post",
+      "https://face-recognition-backend.adaptable.app/ff",
       {
         method: "POST",
         body: JSON.stringify(body),
