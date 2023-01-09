@@ -76,6 +76,7 @@ async function doFunction() {
       // authorize();
     }
     // await authorize(clientMac, apMac, ssidName, radioId);
+    console.log(document.referrer);
     window.location.replace(document.referrer);
   }
   {
