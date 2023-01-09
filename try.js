@@ -75,7 +75,8 @@ async function doFunction() {
       // window.location.href = `${redirectUrl}`; //redirect to login page/
       // authorize();
     }
-    await authorize(clientMac, apMac, ssidName, radioId);
+    // await authorize(clientMac, apMac, ssidName, radioId);
+    window.location.replace(document.referrer);
   }
   {
     !t && console.log("password not match");
