@@ -85,7 +85,7 @@ async function doFunction() {
       )
     );
     console.log(prevUrl);
-    window.location.replace(prevUrl);
+    // window.location.replace(prevUrl);
   }
   {
     !t && console.log("password not match");
