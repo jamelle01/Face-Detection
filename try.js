@@ -78,7 +78,13 @@ async function doFunction() {
     // await authorize(clientMac, apMac, ssidName, radioId);
     // console.log(document.referrer);
     // window.location.replace(document.referrer);
-    const prevUrl = decodeURIComponent(document.cookie.replace(/(?:(?:^|.*;\s*)prevUrl\s*\=\s*([^;]*).*$)|^.*$/, "$1"));
+    const prevUrl = decodeURIComponent(
+      document.cookie.replace(
+        /(?:(?:^|.*;\s*)prevUrl\s*\=\s*([^;]*).*$)|^.*$/,
+        "$1"
+      )
+    );
+    console.log(prevUrl);
     window.location.replace(prevUrl);
   }
   {
