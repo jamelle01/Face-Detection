@@ -76,8 +76,10 @@ async function doFunction() {
       // authorize();
     }
     // await authorize(clientMac, apMac, ssidName, radioId);
-    console.log(document.referrer);
-    window.location.replace(document.referrer);
+    // console.log(document.referrer);
+    // window.location.replace(document.referrer);
+    const prevUrl = decodeURIComponent(document.cookie.replace(/(?:(?:^|.*;\s*)prevUrl\s*\=\s*([^;]*).*$)|^.*$/, "$1"));
+    window.location.replace(prevUrl);
   }
   {
     !t && console.log("password not match");
