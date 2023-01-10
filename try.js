@@ -65,7 +65,7 @@ async function doFunction() {
   }
   console.log(t);
   if (t) {
-    {
+    
       // await fetchController();
       // console.log(clientMac);
       // console.log(apMac);
@@ -74,7 +74,7 @@ async function doFunction() {
       // console.log(redirectUrl);
       // window.location.href = `${redirectUrl}`; //redirect to login page/
       // authorize();
-    }
+    
     // await authorize(clientMac, apMac, ssidName, radioId);
     // console.log(document.referrer);
     // window.location.replace(document.referrer);
@@ -86,7 +86,7 @@ async function doFunction() {
     // );
     // console.log(prevUrl);
     // window.location.replace(prevUrl);
-    window.history.back();
+    // window.history.back();
   }
   {
     !t && console.log("password not match");
