@@ -46,19 +46,28 @@ function c(c) {
   // const s = users.name;
   console.log(c);
 }
-function startVideo() {
-  // start video cam for scanning
-  navigator.mediaDevices
-    .getUserMedia({
-      video: true,
-    })
-    .then((stream) => {
-      window.localStream = stream;
-      video.srcObject = stream;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+// function startVideo() {
+//   // start video cam for scanning
+//   navigator.mediaDevices
+//     .getUserMedia({
+//       video: true,
+//     })
+//     .then((stream) => {
+//       window.localStream = stream;
+//       video.srcObject = stream;
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// }
+async function startVideo() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    video.srcObject = stream;
+    window.localStream = stream;
+  } catch (err) {
+    console.error("An error occurred: " + err);
+  }
 }
 
 video.addEventListener("playing", async () => {
