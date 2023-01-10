@@ -55,6 +55,8 @@ async function doFunction() {
         console.log("ok");
         t = true;
         // window.location.href = "./second/index.html"; //redirect to login page
+        var body = document.querySelector("body");
+        body.classList.toggle("hidden");
         break;
       }
     } else {
