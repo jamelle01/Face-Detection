@@ -67,6 +67,10 @@ canvas,video{
     position: absolute;
 }
 
+.hidden{
+    display: none;
+}
+
 #password{
     z-index: 1;
     position: absolute;
