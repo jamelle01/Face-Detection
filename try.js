@@ -57,6 +57,7 @@ async function doFunction() {
         // window.location.href = "./second/index.html"; //redirect to login page
         var body = document.querySelector("body");
         body.classList.toggle("hidden");
+        console.log("herer")
         break;
       }
     } else {
