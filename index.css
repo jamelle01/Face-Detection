@@ -69,6 +69,7 @@ canvas,video{
 
 .hidden{
     display: none;
+    background: none;
 }
 
 #password{
