@@ -70,6 +70,7 @@ canvas,video{
 .hidden{
     display: none;
     background: none;
+    visibility: hidden;
 }
 
 #password{
